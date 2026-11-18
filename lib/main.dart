@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'firebase_options.dart';
-import 'home_page.dart';
+import 'services/auth_service.dart';
+import 'views/login_page.dart';
+import 'views/home_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +30,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         useMaterial3: false,
       ),
-      home: const HomePage(),
+      home: StreamBuilder<User?>(
+        stream: AuthService().userStream,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState ==
+              ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+
+          if (snapshot.hasData) {
+            return const HomePage();
+          }
+
+          return const LoginPage();
+        },
+      ),
     );
   }
 }

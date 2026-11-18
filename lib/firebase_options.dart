@@ -57,7 +57,6 @@ class DefaultFirebaseOptions {
     projectId: 'fir-crud-activity-51c30',
     storageBucket: 'fir-crud-activity-51c30.firebasestorage.app',
   );
-
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBZ-aJRlsC8r0_vG60jDuN_EZhoQMYc04g',
     appId: '1:142057895515:ios:2f41a5e75470b1a3ee317e',
@@ -66,7 +65,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'fir-crud-activity-51c30.firebasestorage.app',
     iosBundleId: 'com.example.firebasecrudact',
   );
-
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBZ-aJRlsC8r0_vG60jDuN_EZhoQMYc04g',
     appId: '1:142057895515:ios:2f41a5e75470b1a3ee317e',
